@@ -27,5 +27,4 @@ npm-debug.log
 .idea/
 
 # Visual Studio Code
-.vscode/
-
+# is included
