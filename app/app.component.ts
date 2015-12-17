@@ -1,10 +1,7 @@
-import {Component, ViewEncapsulation} from 'angular2/core';
-
-// If we need a Hero that goes beyond simple properties, a Hero with logic and behavior, we must define a class. If we only need type checking, the interface is sufficient and lighter weight.
-interface Hero {
-    id: number;
-    name: string;
-}
+///<reference path="hero-detail.component.ts"/>
+import {Component, ViewEncapsulation} from 'angular2/core'
+import {Hero} from './hero'
+import {HeroDetailComponent} from './hero-detail.component'
 
 // TODO migrate to some data service
 var HEROES: Hero[] = [
@@ -36,16 +33,9 @@ var HEROES: Hero[] = [
             </li>
         </ul>
 
-        <div *ngIf="selectedHero">
-          <h2>{{selectedHero.name}} details!</h2>
-          <div><label>id: </label>{{selectedHero.id}}</div>
-          <div>
-              <label>name: </label>
-              <div><input [(ngModel)]="selectedHero.name" placeholder="name"></div>
-          </div>
-        </div>
+        <my-hero-detail [hero]="selectedHero"></my-hero-detail>
     `,
-    styles:[`
+    styles: [`
       .heroes {list-style-type: none; margin-left: 1em; padding: 0; width: 10em;}
       .heroes li { cursor: pointer; position: relative; left: 0; transition: all 0.2s ease; }
       .heroes li:hover {color: #369; background-color: #EEE; left: .2em;}
@@ -60,7 +50,10 @@ var HEROES: Hero[] = [
         top: -1px;
       }
       .selected { background-color: #EEE; color: #369; }
-    `]
+    `],
+
+  // NOTE: be explicit of using Array to avoid WebStorm warnings.
+  directives: Array(HeroDetailComponent)
 })
 export class AppComponent {
   public heroes = HEROES;
