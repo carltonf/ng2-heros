@@ -1,7 +1,8 @@
-///<reference path="hero-detail.component.ts"/>
 import {Component, ViewEncapsulation} from 'angular2/core'
 import {Hero} from './hero'
-import {HeroDetailComponent} from './hero-detail.component'
+// There is NO node style folder module resolution
+// ref: https://github.com/Microsoft/TypeScript/issues/5039
+import {HeroDetailComponent} from './hero-detail.component/index'
 
 // TODO migrate to some data service
 var HEROES: Hero[] = [
@@ -32,7 +33,7 @@ var HEROES: Hero[] = [
                 <span class="badge">{{hero.id}}</span> {{hero.name}}
             </li>
         </ul>
-
+        <hr *ngIf="selectedHero">
         <my-hero-detail [hero]="selectedHero"></my-hero-detail>
     `,
     styles: [`
