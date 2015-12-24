@@ -5,6 +5,10 @@ import {Hero} from './hero'
 import {HeroDetailComponent} from './hero-detail.component/index'
 import {HeroListComponent} from './hero-list.component/index'
 
+// To use Tabgroup and Tab, both need to be imported
+import {TabgroupComponent} from './tabs/tabgroup.component'
+import {TabComponent} from './tabs/tab.component'
+
 import {HeroService} from './hero.service/index'
 
 @Component({
@@ -12,17 +16,12 @@ import {HeroService} from './hero.service/index'
   // Use native Shadow DOM instead of attribute tricks
     encapsulation: ViewEncapsulation.Native,
     selector: 'my-app',
-    template: `
-        <h1>{{title}}</h1>
-        <h2>My Heroes</h2>
-        <my-hero-list [heroes]="heroes"
-                      (onSelectedHero)="onSelect($event)">
-        </my-hero-list>
-        <hr *ngIf="selectedHero">
-        <my-hero-detail [hero]="selectedHero"></my-hero-detail>
-    `,
+    templateUrl: './app/app.tpl.html',
   // NOTE: be explicit of using Array to avoid WebStorm warnings.
-  directives: [HeroDetailComponent, HeroListComponent],
+  directives: [
+    HeroDetailComponent, HeroListComponent,
+    TabgroupComponent, TabComponent,
+  ],
   providers: [HeroService]
 })
 export class AppComponent implements OnInit {
