@@ -1,1 +1,0 @@
-(Developing a Tabs Component in Angular2)[http://blog.thoughtram.io/angular/2015/04/09/developing-a-tabs-component-in-angular-2.html]

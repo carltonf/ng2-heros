@@ -3,21 +3,28 @@ import {TabgroupComponent} from './tabgroup.component'
 
 @Component({
   selector: 'tab',
+  // NOTE `ng-content` is just Angular2's content insertion point of Shadow DOM
+  // `content` is NOT ok, as it's not standard yet.
   template: `
-    <div>
+    <div *ngIf="active">
       <ng-content></ng-content>
     </div>
   `,
-  inputs: ['title:tabTitle']
+  inputs: ['title:tabTitle'],
+  directives: [],
 })
-export class TabComponent implements OnInit {
-  constructor(private _tabgroup: TabgroupComponent) { }
+export class TabComponent {
   public title: string = 'Tab';
+  public active: boolean = false;
+  public group: TabgroupComponent;
 
-  attachToTabgroup() {
-    this._tabgroup.addTab(this);
+  toggle() {
+    this.active = !this.active;
   }
-  ngOnInit() {
-    this.attachToTabgroup();
+  show() {
+    this.active = true;
+  }
+  hide() {
+    this.active = false;
   }
 }
