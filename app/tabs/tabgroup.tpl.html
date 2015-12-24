@@ -1,9 +1,4 @@
-<ul>
-  <li *ngFor="#tab of _tabs" (click)="onSelectTab(tab)">
-    {{ tab.title }}
-  </li>
-</ul>
+<tabnav [tabs]="tabs" (selectTab)="onSelectTab($event)">
+</tabnav>
 
-<div>
-  <ng-content></ng-content>
-</div>
+<ng-content></ng-content>
