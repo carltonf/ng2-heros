@@ -1,0 +1,16 @@
+* [[http://blog.thoughtram.io/angular/2015/04/09/developing-a-tabs-component-in-angular-2.html][Ref: Developing a Tabs Component in Angular2]]
+
+- Time: Dec-24-2015 12:33:27 CST
+- Angular2 version: beta.0
+
+* Differences
+** Inject parent component into child component
+
+The stated way of Hierarchical Injection is no longer valid. Most web resources
+are about =@Parent= decorator (I have not found the relevant commit for the
+removal of =@Parent=, but I assume it's done in unifying the data flow
+direction.)
+
+According to the =src/core/metadata.ts::Query=, it's better to have parent
+components query all its children.
+

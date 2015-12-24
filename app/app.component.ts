@@ -26,15 +26,21 @@ import {HeroService} from './hero.service/index'
 })
 export class AppComponent implements OnInit {
   constructor(private _heroService: HeroService) {}
-  public heroes: Hero[];
+  public westHeroes: Hero[];
+  public chnHeroes: Hero[];
   public title = 'Tour of Heroes';
+  // todo: not to be shared among western and chinese heroes
+  // needs a separate component: HeroBoard
   public selectedHero: Hero;
   public onSelect(hero: Hero) { this.selectedHero = hero; }
 
   // NOTE: do NOT pass getHeroes as then callback as it would lose 'this'
   // context
   getHeroes() {
-    this._heroService.getHeroes().then(heroes => this.heroes = heroes);
+    this._heroService.getHeroes().then(heroes => {
+      this.westHeroes = heroes.west;
+      this.chnHeroes = heroes.chinese;
+    });
   }
   // Use life cycle hook to avoid complex logic in constructor
   ngOnInit() {
