@@ -3,8 +3,9 @@ import {Hero} from '../hero'
 
 @Component({
   selector: "my-hero-list",
-  templateUrl: "app/hero-list.component/tpl.html",
-  styleUrls: ["app/hero-list.component/view.css"],
+  moduleId: 'app/hero-list.component/',
+  templateUrl: "tpl.html",
+  styleUrls: ["style.css"],
   inputs: ['heroes'],
   // the property for output should be the same string (the doc is out of sync)
   outputs: ['onSelectedHero']
