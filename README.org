@@ -1,0 +1,53 @@
+
+* Angular2 Pitfalls
+
+** =@Component::moduleId=
+
+set this to use relative paths for component assets.
+
+** Silent failures
+When it fails silents, usually it's related to the DOM, here I list some cases
+I've come over.
+
+- Pay close attention to inputs/outputs spelling
+
+* Make tabs an independent module for reuse
+
+An npm module preferred. Most web resources are outdated.
+
+** A warning on local module testing
+  
+It's tempting to have =tabs= install from a local directory. But there are some
+issues associated. Suggestion [[https://github.com/timoxley/linklocal][timoxley/linklocal]].
+
+- Be aware of [[https://github.com/npm/npm/issues/7426][Update of local dependencies does not work]]
+  
+  This issue has been around for quite a while.
+
+- =npm link= is ok, but it doesn't look up your =package.json= file.
+
+  which [[https://github.com/timoxley/linklocal][timoxley/linklocal]] addresses well.
+
+** About the =package.json= and =tsconfig.json=
+
+=tsconfig.json= is always needed. Refer to =ng2-heroes= for a sample.
+
+In package.json, there is the =typings= field to set. Refer to [[https://github.com/Microsoft/TypeScript/wiki/Typings-for-npm-packages][Typings for npm
+packages · Microsoft/TypeScript Wiki]] for details.
+
+* Some Notes
+** =lite-server=
+
+- Avoid opening a new browser window
+
+  There is an ongoing [[https://github.com/johnpapa/lite-server/issues/1][issue]] about exposing =browser-sync='s configuration
+  objects in command line.
+  
+  For now, add =open: false= to =sync.init= in =lite-server.js=.
+
+*** *TODO* Use our own server
+
+=lite-server= doesn't really have any fancy features, use our own!
+=browser-sync= looks quite interesting though (so we don't need our custom SSE).
+  
+  
