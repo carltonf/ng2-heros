@@ -11,6 +11,7 @@ import {Hero} from '../hero'
   outputs: ['onSelectedHero']
 })
 export class HeroListComponent {
+  public heroes: Hero[];
   // TODO the manual event emitter feels clummsy, any shortcuts?
   public onSelectedHero = new EventEmitter();
   public selectedHero: Hero;

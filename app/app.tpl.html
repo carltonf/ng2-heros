@@ -2,15 +2,9 @@
 
 <tabgroup>
   <tab tabTitle="Western Heroes">
-    <my-hero-list [heroes]="westHeroes" (onSelectedHero)="onSelect($event)">
-    </my-hero-list>
-    <hr *ngIf="selectedHero">
-    <my-hero-detail [hero]="selectedHero"></my-hero-detail>
+    <heroes-board heroOrigin="west"></heroes-board>
   </tab>
   <tab tabTitle="Chinese Heroes">
-    <my-hero-list [heroes]="chnHeroes" (onSelectedHero)="onSelect($event)">
-    </my-hero-list>
-    <hr *ngIf="selectedHero">
-    <my-hero-detail [hero]="selectedHero"></my-hero-detail>
+    <heroes-board heroOrigin="china"></heroes-board>
   </tab>
 </tabgroup>
