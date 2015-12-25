@@ -3,7 +3,7 @@ import {Hero} from '../hero'
 
 @Component({
   selector: "my-hero-list",
-  moduleId: 'app/hero-list.component/',
+  moduleId: module.id,
   templateUrl: "tpl.html",
   styleUrls: ["style.css"],
   inputs: ['heroes'],
