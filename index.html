@@ -10,20 +10,8 @@
     <script src="node_modules/angular2/bundles/angular2.dev.js"></script>
 
     <!-- 2. Configure SystemJS -->
-    <script>
-      System.config({
-        packages: {
-          app: {
-            format: 'cjs',
-            defaultExtension: 'js'
-          }
-        }
-      });
-      System.import('app/boot')
-            .then(null, console.error.bind(console));
-    </script>
-
-  </head>
+    <script src="systemjs-configs.js"></script>
+   </head>
 
   <!-- 3. Display the application -->
   <body>
